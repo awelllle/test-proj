@@ -49,7 +49,7 @@ exports.receiveRequest = async(req, res, next) => {
         if(result != null){
 
         var i;
-        for (i = 0; i < result.length; i++) {
+        for (i = 2; i < result.length; i++) {
 
         var options = {
             port: 8883,
@@ -68,10 +68,7 @@ exports.receiveRequest = async(req, res, next) => {
     
             client.subscribe(phone, function (err) {
               if (!err) {
-                  let data = {phone: "1", requestId: "44" };
-                  let payload = JSON.stringify(data);
-
-                client.publish("accept", Buffer.from(payload) )
+                client.publish(phone, 'New Request!')
               }
             })
           })
@@ -81,6 +78,17 @@ exports.receiveRequest = async(req, res, next) => {
             console.log(message.toString())
             client.end()
           })
+
+
+
+        //   client.subscribe(phone, function (err) {
+        //     if (!err) {
+        //         let data = {phone: "1", requestId: "44" };
+        //         let payload = JSON.stringify(data);
+
+        //       client.publish("accept", Buffer.from(payload) )
+        //     }
+        //   })
 
         }
                
@@ -121,6 +129,8 @@ exports.addAgent = (req, res) =>{
 
 }
 
+
+
 exports.requests = (req, res) =>{
 
     if(req.body.phone != null){
@@ -158,6 +168,8 @@ exports.request = (req, res)=> {
 
     });
 }
+
+
 
 
 exports.createRequest = (req, res) =>{
