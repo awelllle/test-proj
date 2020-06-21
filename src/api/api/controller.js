@@ -49,7 +49,7 @@ exports.receiveRequest = async(req, res, next) => {
         if(result != null){
 
         var i;
-        for (i = 2; i < result.length; i++) {
+        for (i = 0; i < result.length; i++) {
 
         var options = {
             port: 8883,
