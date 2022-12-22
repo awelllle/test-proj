@@ -22,7 +22,7 @@
     "gm": "^1.23.1",
     "hbs": "~4.0.1",
     "http-errors": "~1.6.2",
-    "jsonwebtoken": "^8.3.0",
+    "jsonwebtoken": "^9.0.0",
     "mongoose": "^5.2.13",
     "morgan": "^1.9.1",
     "mqtt": "^4.1.0",
